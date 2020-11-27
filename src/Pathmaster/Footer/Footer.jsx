@@ -7,7 +7,7 @@ export default class Footer extends Component {
     return (
       <div onMouseUp={() => this.props.handleMouseUp()}>
         <div className="footer">
-          Made with <span class="heart">❤</span> for COP3530
+          Made with <span className="heart">❤</span> for COP3530
         </div>
       </div>
     );

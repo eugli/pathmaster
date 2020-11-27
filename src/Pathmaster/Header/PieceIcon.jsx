@@ -11,14 +11,31 @@ export default class PieceIcon extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: this.props.active,
+      active: false,
       piece: this.props.piece,
     };
   }
 
+  componentDidMount() {
+    if (this.state.piece === this.props.currentPiece) {
+      this.setState({ active: true });
+    } else {
+      this.setState({ active: false });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.currentPiece !== prevProps.currentPiece) {
+      if (this.state.piece === this.props.currentPiece) {
+        this.setState({ active: true });
+      } else {
+        this.setState({ active: false });
+      }
+    }
+  }
+
   onClick(piece) {
     this.props.setPieceType(piece);
-    this.setState({ active: !this.state.active });
   }
 
   render() {
@@ -34,7 +51,7 @@ export default class PieceIcon extends Component {
 
     if (piece === "Pawn") {
       return (
-        <button
+        <Button
           className={
             this.state.active
               ? "piece_selected easter"
@@ -42,8 +59,8 @@ export default class PieceIcon extends Component {
           }
           onClick={() => this.onClick(piece)}
         >
-          <img src={image} width="35"></img>
-        </button>
+          <img src={image} width="35" alt={piece}></img>
+        </Button>
       );
     } else {
       return (
@@ -51,7 +68,7 @@ export default class PieceIcon extends Component {
           className={this.state.active ? "piece_selected" : "piece_unselected"}
           onClick={() => this.onClick(piece)}
         >
-          <img src={image} width="35"></img>
+          <img src={image} width="35" alt={piece}></img>
         </Button>
       );
     }

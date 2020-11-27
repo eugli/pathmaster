@@ -14,28 +14,26 @@
 .header_container {
   display: fixed;
   top: 0;
-  height: 110px;
+  height: 120px;
   width: 100%;
 }
 
 .top_header {
+  height: 3.5em;
   width: 100%;
-  height: 80%;
   display: table;
-  vertical-align: top;
   position: relative;
   background-color: rgb(245, 195, 66);
 }
 
 .bottom_header {
+  height: 4em;
   width: 100%;
-  height: 85%;
   display: table;
   background-color: rgb(249, 215, 120);
   border-bottom: 2px solid black;
   position: relative;
   z-index: 5;
-  display: table;
 }
 
 .logo_holder {
@@ -62,8 +60,8 @@
 .logo_holder img {
   display: table-cell;
   vertical-align: middle;
-  padding-top: 2vh;
-  padding-left: 2vh;
+  padding-top: 0.5em;
+  padding-left: 1em;
 }
 
 .top_button {
@@ -105,8 +103,14 @@
 
 .piece_select {
   float: left;
+  display: table;
   height: 100%;
   padding-left: 7em;
+  vertical-align: middle;
+}
+
+.piece_select span {
+  display: table-cell;
   vertical-align: middle;
 }
 
@@ -115,25 +119,20 @@
   background-color: rgb(249, 215, 120);
   transition: all 0.5s ease;
   border: 0.1em solid black;
+  margin: 0 0 0 0.5em;
   border-radius: 0.5em;
+  padding: 0.5em 0 0.16em 0;
   outline: none;
   font-family: "Century Gothic";
-  transform: scale(0.9);
 }
 
-.piece_select a li {
+.piece_select h1 {
   display: table-cell;
+  vertical-align: middle;
   padding-right: 0.5em;
   font-size: 21px;
   font-weight: 300;
   font-family: "Fira Sans Extra Condensed", sans-serif;
-}
-
-.or {
-  height: 10px;
-  vertical-align: middle;
-  text-align: center;
-  margin: 0 auto;
 }
 
 .algo_select {
@@ -145,7 +144,6 @@
 }
 
 .algo_select h1 {
-  height: 100%;
   display: table-cell;
   vertical-align: middle;
   font-size: 21px;

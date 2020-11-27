@@ -7,10 +7,6 @@ export default class Node extends Component {
     const {
       col,
       row,
-      distance,
-      heuristic,
-      isVisited,
-      previousNode,
       isStart,
       isFinish,
       isColor,

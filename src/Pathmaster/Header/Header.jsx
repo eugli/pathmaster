@@ -5,37 +5,37 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
 import "./Header.css";
-import king from "../pieces/king.png";
-import queen from "../pieces/queen.png";
-import bishop from "../pieces/bishop.png";
-import rook from "../pieces/rook.png";
-import knight from "../pieces/knight.png";
-import pawn from "../pieces/pawn.png";
 
-export default class Footer extends Component {
+export default class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
+      icons: ["King", "Queen", "Bishop", "Rook", "Knight", "Pawn"],
+      currentPiece: this.props.currentPiece,
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ currentPiece: nextProps.currentPiece });
+  }
+
   render() {
-    var { active } = this.state;
+    var { icons, currentPiece } = this.state;
 
     return (
       <div className="header_container">
         <div className="header" onClick={() => this.props.handleMouseUp()}>
           <div className="top_header">
             <div className="logo_holder">
-              <a>
+              <div>
                 <li onClick={() => this.props.setPieceType("Pawn")}>
                   <img
                     src="https://www.flaticon.com/svg/static/icons/svg/107/107613.svg"
                     width="35"
+                    alt="🥚"
                   ></img>
                 </li>
-              </a>
+              </div>
               <h1>
                 PATH<span>MASTER</span>
               </h1>
@@ -46,59 +46,42 @@ export default class Footer extends Component {
             <div className="top_button">
               <Button onClick={() => this.props.resetBoard()}>Reset</Button>
             </div>
-            <ul class="navigation">
-              <a href="https://github.com/eugli/Pathmaster" target="_blank">
+            <ul className="navigation">
+              <a
+                href="https://github.com/eugli/Pathmaster"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <li>
                   <img
                     src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg"
                     width="40"
                     height="40"
+                    alt="GitHub"
                   ></img>
                 </li>
               </a>
             </ul>
           </div>
           <div className="bottom_header">
-            <ul class="piece_select">
-              <a>
-                <li>Select a Piece:</li>
-              </a>
+            <ul className="piece_select">
+              <h1>Select a Piece:</h1>
               <span>
-                <PieceIcon
-                  active={active}
-                  piece={"King"}
-                  setPieceType={this.props.setPieceType}
-                />
-                <PieceIcon
-                  active={active}
-                  piece={"Queen"}
-                  setPieceType={this.props.setPieceType}
-                />
-                <PieceIcon
-                  active={active}
-                  piece={"Bishop"}
-                  setPieceType={this.props.setPieceType}
-                />
-                <PieceIcon
-                  active={active}
-                  piece={"Rook"}
-                  setPieceType={this.props.setPieceType}
-                />
-                <PieceIcon
-                  active={active}
-                  piece={"Knight"}
-                  setPieceType={this.props.setPieceType}
-                />
-                <PieceIcon
-                  active={active}
-                  piece={"Pawn"}
-                  setPieceType={this.props.setPieceType}
-                ></PieceIcon>
+                {icons.map((piece) => {
+                  return (
+                    <PieceIcon
+                      currentPiece={currentPiece}
+                      key={piece}
+                      piece={piece}
+                      setPieceType={this.props.setPieceType}
+                    />
+                  );
+                })}
               </span>
             </ul>
             <div className="algo_select">
               <h1>Select Algorithm:</h1>
-              <div class="selectdiv">
+              <div className="selectdiv">
                 <label>
                   <Select
                     defaultValue={this.props.algorithm}

@@ -12,7 +12,7 @@ export default class PathfindingVisualizer extends Component {
     this.state = {
       grid: [],
       mouseIsPressed: false,
-      pieceType: "Knight",
+      pieceType: "King",
       algorithm: "Dijkstra",
     };
   }
@@ -125,6 +125,7 @@ export default class PathfindingVisualizer extends Component {
         <div className="body">
           <Header
             algorithm={algorithm}
+            currentPiece={pieceType}
             handleMouseUp={this.handleMouseUp}
             setPieceType={this.setPieceType}
             resetBoard={this.resetBoard}
@@ -148,6 +149,7 @@ export default class PathfindingVisualizer extends Component {
                       isColor,
                       isWall,
                     } = node;
+
                     return (
                       <Node
                         key={nodeIdx}
@@ -210,16 +212,22 @@ const createNode = (col, row) => {
 };
 
 const getNewGrid = (grid, row, col, mouse) => {
-  const node = grid[row][col];
+  const newGrid = grid.slice();
+  const node = newGrid[row][col];
+  const newNode = {
+    ...node,
+  };
+
   if (mouse === 1) {
-    if (!node.isStart && !node.isFinish) {
-      node.isWall = true;
+    if (!newNode.isStart && !newNode.isFinish) {
+      newNode.isWall = true;
     }
   } else if (mouse === 3) {
-    if (!node.isStart && !node.isFinish) {
-      node.isWall = false;
+    if (!newNode.isStart && !newNode.isFinish) {
+      newNode.isWall = false;
     }
   }
 
-  return grid;
+  newGrid[row][col] = newNode;
+  return newGrid;
 };
