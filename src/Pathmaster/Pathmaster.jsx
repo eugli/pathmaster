@@ -14,6 +14,7 @@ export default class PathfindingVisualizer extends Component {
       mouseIsPressed: false,
       pieceType: "King",
       algorithm: "Dijkstra",
+      running: false,
     };
   }
 
@@ -22,8 +23,8 @@ export default class PathfindingVisualizer extends Component {
   }
 
   resetBoard = () => {
-    const grid = getInitialGrid();
-    this.setState({ grid });
+    const newGrid = getInitialGrid();
+    this.setState({ grid: newGrid });
   };
 
   setPieceType = (piece) => {
@@ -40,16 +41,19 @@ export default class PathfindingVisualizer extends Component {
     } else if (document.selection) {
       document.selection.empty();
     }
-    if (row === undefined && col === undefined) {
-      this.setState({ mouseIsPressed: true });
-    } else {
-      const newGrid = getNewGrid(this.state.grid, row, col, e);
-      this.setState({ grid: newGrid, mouseIsPressed: true });
+
+    if (!this.state.running) {
+      if (row === undefined && col === undefined) {
+        this.setState({ mouseIsPressed: true });
+      } else {
+        const newGrid = getNewGrid(this.state.grid, row, col, e);
+        this.setState({ grid: newGrid, mouseIsPressed: true });
+      }
     }
   };
 
   handleMouseEnter = (e, row, col) => {
-    if (this.state.mouseIsPressed) {
+    if (!this.state.running && this.state.mouseIsPressed) {
       const newGrid = getNewGrid(this.state.grid, row, col, e);
       this.setState({ grid: newGrid });
     }
@@ -59,17 +63,13 @@ export default class PathfindingVisualizer extends Component {
     this.setState({ mouseIsPressed: false });
   };
 
-  async clearPath() {
-    var clearNodes = document.getElementsByClassName("node-visited");
-    if (clearNodes !== undefined) {
-      for (let i = 0; i < clearNodes.length; i++) {
-        clearNodes[i].className = "";
-      }
-    }
+  clearPath() {
+    this.resetBoard();
   }
 
-  async animate(visitedNodesInOrder, nodesInShortestPathOrder, startNode) {
-    await this.clearPath();
+  animate(visitedNodesInOrder, nodesInShortestPathOrder, startNode) {
+    this.clearPath();
+
     for (let i = 0; i < visitedNodesInOrder.length; i++) {
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
@@ -77,11 +77,11 @@ export default class PathfindingVisualizer extends Component {
           "node node-visited";
       }, 10 * i);
     }
+
     if (nodesInShortestPathOrder[0] === startNode) {
       setTimeout(() => {
         this.animateShortestPath(nodesInShortestPathOrder);
       }, 10 * visitedNodesInOrder.length);
-      return;
     } else {
       //display error, shortest path not found
     }
@@ -97,7 +97,7 @@ export default class PathfindingVisualizer extends Component {
     }
   };
 
-  visualize = () => {
+  visualize = async () => {
     const { grid, pieceType, algorithm } = this.state;
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
@@ -114,7 +114,10 @@ export default class PathfindingVisualizer extends Component {
       true,
       grid
     );
+
     this.animate(visitedNodesInOrder, nodesInShortestPathOrder, startNode);
+
+    this.setState({ running: false });
   };
 
   render() {
@@ -137,10 +140,10 @@ export default class PathfindingVisualizer extends Component {
             onMouseUp={() => this.handleMouseUp()}
             onContextMenu={(e) => e.preventDefault()}
           >
-            {grid.map((row, rowIdx) => {
+            {grid.map((row, rowId) => {
               return (
-                <div className="row" key={rowIdx}>
-                  {row.map((node, nodeIdx) => {
+                <div className="row" key={rowId}>
+                  {row.map((node, nodeId) => {
                     const {
                       col,
                       row,
@@ -148,19 +151,32 @@ export default class PathfindingVisualizer extends Component {
                       isStart,
                       isColor,
                       isWall,
+                      prevWall,
                     } = node;
+
+                    var nodeType = isFinish
+                      ? "node-finish"
+                      : isStart
+                      ? "node-start"
+                      : isWall
+                      ? "node-wall"
+                      : isColor
+                      ? "node-color"
+                      : "node-default";
 
                     return (
                       <Node
-                        key={nodeIdx}
+                        key={nodeId}
                         col={col}
                         row={row}
                         isFinish={isFinish}
                         isStart={isStart}
                         isWall={isWall}
                         isColor={isColor}
+                        prevWall={prevWall}
                         onMouseDown={(e) => this.handleMouseDown(e, row, col)}
                         onMouseEnter={(e) => this.handleMouseEnter(e, row, col)}
+                        nodeType={nodeType}
                       ></Node>
                     );
                   })}
@@ -175,7 +191,7 @@ export default class PathfindingVisualizer extends Component {
   }
 }
 
-const NUM_ROWS = 37;
+const NUM_ROWS = 38;
 const NUM_COLS = 85;
 const START_NODE_ROW = Math.floor(NUM_ROWS / 2);
 const START_NODE_COL = Math.floor(NUM_COLS / 4);
@@ -193,6 +209,7 @@ const getInitialGrid = () => {
   }
   return grid;
 };
+
 const createNode = (col, row) => {
   return {
     col,
@@ -220,11 +237,17 @@ const getNewGrid = (grid, row, col, mouse) => {
 
   if (mouse === 1) {
     if (!newNode.isStart && !newNode.isFinish) {
-      newNode.isWall = true;
+      if (!newNode.isWall) {
+        newNode.isWall = true;
+        newNode.prevWall = false;
+      }
     }
   } else if (mouse === 3) {
     if (!newNode.isStart && !newNode.isFinish) {
-      newNode.isWall = false;
+      if (newNode.isWall) {
+        newNode.prevWall = true;
+        newNode.isWall = false;
+      }
     }
   }
 

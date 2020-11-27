@@ -4,33 +4,26 @@ import "./Node.css";
 
 export default class Node extends Component {
   render() {
-    const {
-      col,
-      row,
-      isStart,
-      isFinish,
-      isColor,
-      isWall,
-      onMouseDown,
-      onMouseEnter,
-    } = this.props;
-
-    const nodeType = isFinish
-      ? "node-finish"
-      : isStart
-      ? "node-start"
-      : isWall
-      ? "node-wall"
-      : isColor
-      ? "node-color"
-      : "node-default";
-
     return (
       <div
-        id={`node-${row}-${col}`}
-        className={`node ${nodeType}`}
-        onMouseDown={(e) => onMouseDown(e.nativeEvent.which, row, col)}
-        onMouseEnter={(e) => onMouseEnter(e.nativeEvent.which, row, col)}
+        id={`node-${this.props.row}-${this.props.col}`}
+        className={`node ${this.props.nodeType} ${
+          this.props.prevWall ? "prev-wall" : ""
+        }`}
+        onMouseDown={(e) =>
+          this.props.onMouseDown(
+            e.nativeEvent.which,
+            this.props.row,
+            this.props.col
+          )
+        }
+        onMouseEnter={(e) =>
+          this.props.onMouseEnter(
+            e.nativeEvent.which,
+            this.props.row,
+            this.props.col
+          )
+        }
       ></div>
     );
   }

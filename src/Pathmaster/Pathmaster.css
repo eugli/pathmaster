@@ -2,11 +2,11 @@
 
 .grid {
   z-index: 100;
+  margin-top: 120px;
   display: grid;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 0 auto;
   -moz-user-select: none;
   -khtml-user-select: none;
   user-select: none;

@@ -84,7 +84,7 @@ export default class Header extends Component {
               <div className="selectdiv">
                 <label>
                   <Select
-                    defaultValue={this.props.algorithm}
+                    value={this.props.algorithm ?? ""}
                     onChange={(e) => this.props.setAlgorithm(e.target.value)}
                   >
                     <MenuItem value="Dijkstra">Dijkstra's Algorithm</MenuItem>
