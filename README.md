@@ -3,17 +3,17 @@ Pathmaster
 Made for COP3530 at UF.
 
 ## TODO
-- [ ] fix button animation
+- [x] fix button animation
 - [ ] fix reset button
-- [ ] change node component to behave like an actual component
+- [x] change node component to behave like an actual component
 - [ ] better dynamic placement of header, grid, and footer (make it fullscreen)
 - [ ] make grid into its own component
 - [ ] avoid holes when highlighting fast
 - [ ] dynamic grid sizing based on size of screen
-- [ ] add animation when inserting wall
+- [x] add animation when inserting wall and removing wall
 - [ ] add movable start and finish nodes
 - [ ] add more algorithms (is A* weighted bugged)--bidirectional, DFS/IDS?
-- [ ] optimize code to only update relevant nodes, not the entire grid
+- [ ] optimize code to only update relevant nodes, not the entire grid!!!!!!!!!!!! (might need to refactor everything)
 - [ ] add further optimizations to make it run like butter
 - [ ] implement pawn easter egg
 - [ ] slow down animation a little bit
