@@ -68,8 +68,6 @@ export default class PathfindingVisualizer extends Component {
   }
 
   animate(visitedNodesInOrder, nodesInShortestPathOrder, startNode) {
-    this.clearPath();
-
     for (let i = 0; i < visitedNodesInOrder.length; i++) {
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
