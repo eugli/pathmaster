@@ -22,6 +22,8 @@ Made for COP3530 at UF.
 - [ ] pause animation when not on screen
 - [ ] add little chess piece to path visualization (remove filling in every square in between and just have the piece jump node to node)
 - [ ] create logo and favicon
+- [ ] redesign header UI to have minimal text
+- [ ] add an info modal that gives a tutorial / explains what the different colors mean / what the controls are
 - [ ] ability to change between preset wall patterns (random walls, preset maze, cool patterns)
 - [ ] ability to change between different board themes (dark mode, very important)
 - [ ] redraft UI and color scheme (remove "select" text)
