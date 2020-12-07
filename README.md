@@ -3,7 +3,7 @@
 
 This project was built for COP3530: Data Structures and Algorithms at the University of Florida.
 
-### Todo
+## Todo
 - [x] fix button animation
 - [ ] fix reset button
 - [x] change node component to behave like an actual component
