@@ -42,8 +42,6 @@ export default class PathfindingVisualizer extends Component {
   }
 
   clearPath() {
-    const newGrid = resetGridWithWalls(this.state.grid);
-    this.setState({ grid: newGrid });
     var nodes = document.getElementsByClassName("node");
     for (let node of nodes) {
       node.classList.remove("node-visited", "node-shortest-path");
@@ -87,7 +85,10 @@ export default class PathfindingVisualizer extends Component {
   };
 
   animate(visitedNodesInOrder, nodesInShortestPathOrder, startNode) {
+    const newGrid = resetGridWithWalls(this.state.grid);
+    this.setState({ grid: newGrid });
     this.clearPath();
+    
     for (let i = 0; i < visitedNodesInOrder.length; i++) {
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
@@ -175,7 +176,7 @@ const getInitialGrid = () => {
     grid.push(currentRow);
   }
   return grid;
-};  
+};
 
 const resetGridWithWalls = (grid) => {
   const newGrid = [];
