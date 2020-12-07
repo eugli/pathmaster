@@ -1,4 +1,4 @@
-Pathmaster is a web app that combines pathfinding visualization with chess pieces. Give it a try at [pathmaster.tech](pathmaster.tech)!
+Pathmaster is a web app that explores pathfinding visualization with chess pieces. Give it a try at [pathmaster.tech](pathmaster.tech)!
 
 Made for COP3530 at UF.
 
