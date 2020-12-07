@@ -92,8 +92,10 @@ export default class PathfindingVisualizer extends Component {
     for (let i = 0; i < visitedNodesInOrder.length; i++) {
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className +=
-          " node-visited";
+        if (!node.isStart && !node.isFinish) {
+          document.getElementById(`node-${node.row}-${node.col}`).className +=
+            " node-visited";
+        }
       }, 10 * i);
     }
 
@@ -102,7 +104,7 @@ export default class PathfindingVisualizer extends Component {
         this.animateShortestPath(nodesInShortestPathOrder);
       }, 10 * visitedNodesInOrder.length);
     } else {
-      //display error, shortest path not found
+      this.displayNotPossible();
     }
   }
 
@@ -110,8 +112,10 @@ export default class PathfindingVisualizer extends Component {
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
       setTimeout(() => {
         const node = nodesInShortestPathOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className +=
-          " node-shortest-path";
+        if (!node.isStart && !node.isFinish) {
+          document.getElementById(`node-${node.row}-${node.col}`).className +=
+            " node-shortest-path";
+        }
       }, 50 * i);
     }
   };
@@ -136,6 +140,10 @@ export default class PathfindingVisualizer extends Component {
 
     this.animate(visitedNodesInOrder, nodesInShortestPathOrder, startNode);
     this.setState({ running: false });
+  };
+
+  displayNotPossible = () => {
+    // do something here
   };
 
   render() {
