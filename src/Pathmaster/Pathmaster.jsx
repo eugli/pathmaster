@@ -88,7 +88,7 @@ export default class PathfindingVisualizer extends Component {
     const newGrid = resetGridWithWalls(this.state.grid);
     this.setState({ grid: newGrid });
     this.clearPath();
-    
+
     for (let i = 0; i < visitedNodesInOrder.length; i++) {
       setTimeout(() => {
         const node = visitedNodesInOrder[i];

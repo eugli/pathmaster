@@ -54,8 +54,8 @@ export default class PieceIcon extends Component {
         <Button
           className={
             this.state.active
-              ? "piece_selected easter"
-              : "piece_unselected easter"
+              ? "piece_selected"
+              : "piece_unselected easter_hide"
           }
           onClick={() => this.onClick(piece)}
         >
