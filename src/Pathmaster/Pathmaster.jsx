@@ -28,13 +28,27 @@ export default class PathfindingVisualizer extends Component {
   }
 
   componentDidMount() {
-    this.resetBoard();
+    this.resetWalls();
   }
 
   resetBoard = () => {
+    this.resetWalls();
+    this.clearPath();
+  };
+
+  resetWalls() {
     const newGrid = getInitialGrid();
     this.setState({ grid: newGrid });
-  };
+  }
+
+  clearPath() {
+    const newGrid = resetGridWithWalls(this.state.grid);
+    this.setState({ grid: newGrid });
+    var nodes = document.getElementsByClassName("node");
+    for (let node of nodes) {
+      node.classList.remove("node-visited", "node-shortest-path");
+    }
+  }
 
   setPieceType = (piece) => {
     this.setState({ pieceType: piece });
@@ -72,16 +86,13 @@ export default class PathfindingVisualizer extends Component {
     this.setState({ mouseIsPressed: false });
   };
 
-  clearPath() {
-    this.resetBoard();
-  }
-
   animate(visitedNodesInOrder, nodesInShortestPathOrder, startNode) {
+    this.clearPath();
     for (let i = 0; i < visitedNodesInOrder.length; i++) {
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          "node node-visited";
+        document.getElementById(`node-${node.row}-${node.col}`).className +=
+          " node-visited";
       }, 10 * i);
     }
 
@@ -98,8 +109,8 @@ export default class PathfindingVisualizer extends Component {
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
       setTimeout(() => {
         const node = nodesInShortestPathOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          "node node-shortest-path";
+        document.getElementById(`node-${node.row}-${node.col}`).className +=
+          " node-shortest-path";
       }, 50 * i);
     }
   };
@@ -123,7 +134,6 @@ export default class PathfindingVisualizer extends Component {
     );
 
     this.animate(visitedNodesInOrder, nodesInShortestPathOrder, startNode);
-
     this.setState({ running: false });
   };
 
@@ -165,6 +175,21 @@ const getInitialGrid = () => {
     grid.push(currentRow);
   }
   return grid;
+};  
+
+const resetGridWithWalls = (grid) => {
+  const newGrid = [];
+  for (let row = 0; row < NUM_ROWS; row++) {
+    const newRow = [];
+    for (let col = 0; col < NUM_COLS; col++) {
+      let newNode = createNode(col, row);
+      if (grid[row][col].isWall) newNode.isWall = true;
+      newRow.push(newNode);
+    }
+    newGrid.push(newRow);
+  }
+
+  return newGrid;
 };
 
 const createNode = (col, row) => {
