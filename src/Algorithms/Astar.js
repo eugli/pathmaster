@@ -30,7 +30,6 @@ export function astar(grid, start, end, pieceType, isWeighted) {
       openSet.push(n);
     }
   }
-  //what to do if unsuccessful?
   return visitedNodes;
 }
 
