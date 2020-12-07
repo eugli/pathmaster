@@ -1,8 +1,9 @@
+# ToonDo
 [Pathmaster](pathmaster.tech) is a web app that explores pathfinding visualization using chess pieces.
 
 This project was built for COP3530: Data Structures and Algorithms at the University of Florida.
 
-## TODO
+### Todo
 - [x] fix button animation
 - [ ] fix reset button
 - [x] change node component to behave like an actual component
