@@ -2,7 +2,16 @@ import React, { Component } from "react";
 import Node from "./Node/Node";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
+import Grid from "./Grid";
 import { runAlgorithm, getNodesInOrder } from "../Algorithms/RunAlgorithm.js";
+import {
+  NUM_ROWS,
+  NUM_COLS,
+  START_NODE_ROW,
+  START_NODE_COL,
+  FINISH_NODE_ROW,
+  FINISH_NODE_COL,
+} from "./Constants.js";
 
 import "./Pathmaster.css";
 
@@ -133,68 +142,18 @@ export default class PathfindingVisualizer extends Component {
             setAlgorithm={this.setAlgorithm}
             visualize={this.visualize}
           />
-          <div
-            className="grid"
-            onMouseUp={() => this.handleMouseUp()}
-            onContextMenu={(e) => e.preventDefault()}
-          >
-            {grid.map((row, rowId) => {
-              return (
-                <div className="row" key={rowId}>
-                  {row.map((node, nodeId) => {
-                    const {
-                      col,
-                      row,
-                      isFinish,
-                      isStart,
-                      isColor,
-                      isWall,
-                      prevWall,
-                    } = node;
-
-                    var nodeType = isFinish
-                      ? "node-finish"
-                      : isStart
-                      ? "node-start"
-                      : isWall
-                      ? "node-wall"
-                      : isColor
-                      ? "node-color"
-                      : "node-default";
-
-                    return (
-                      <Node
-                        key={nodeId}
-                        col={col}
-                        row={row}
-                        isFinish={isFinish}
-                        isStart={isStart}
-                        isWall={isWall}
-                        isColor={isColor}
-                        prevWall={prevWall}
-                        onMouseDown={(e) => this.handleMouseDown(e, row, col)}
-                        onMouseEnter={(e) => this.handleMouseEnter(e, row, col)}
-                        nodeType={nodeType}
-                      ></Node>
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </div>
+          <Grid
+            grid={grid}
+            handleMouseUp={this.handleMouseUp}
+            handleMouseDown={this.handleMouseDown}
+            handleMouseEnter={this.handleMouseEnter}
+          />
           <Footer handleMouseUp={this.handleMouseUp} />
         </div>
       </>
     );
   }
 }
-
-const NUM_ROWS = 38;
-const NUM_COLS = 85;
-const START_NODE_ROW = Math.floor(NUM_ROWS / 2);
-const START_NODE_COL = Math.floor(NUM_COLS / 4);
-const FINISH_NODE_ROW = Math.floor(NUM_ROWS / 2);
-const FINISH_NODE_COL = Math.floor((NUM_COLS * 3) / 4);
 
 const getInitialGrid = () => {
   const grid = [];

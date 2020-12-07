@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import "./Node.css";
 
 export default class Node extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.nodeType !== nextProps.nodeType;
+  }
+
   render() {
     return (
       <div
