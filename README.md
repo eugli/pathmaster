@@ -1,8 +1,9 @@
-Pathmaster
+# ToonDo
+[Pathmaster](pathmaster.tech) is a web app that explores pathfinding visualization using chess pieces.
 
-Made for COP3530 at UF.
+This project was built for COP3530: Data Structures and Algorithms at the University of Florida.
 
-## TODO
+## Todo
 - [x] fix button animation
 - [ ] fix reset button
 - [x] change node component to behave like an actual component
@@ -19,14 +20,18 @@ Made for COP3530 at UF.
 - [ ] slow down animation a little bit
 - [ ] add hidden tribute to Aman (over the heart in the footer)
 - [ ] add indication for no path found
-- [ ] add little chess piece to path visualization (remove filling in every square in between)
+- [ ] pause animation when not on screen
+- [ ] add little chess piece to path visualization (remove filling in every square in between and just have the piece jump node to node)
 - [ ] create logo and favicon
+- [ ] redesign header UI to have minimal text
+- [ ] add an info modal that gives a tutorial / explains what the different colors mean / what the controls are
 - [ ] ability to change between preset wall patterns (random walls, preset maze, cool patterns)
-- [ ] ability to change between different board themes
+- [ ] ability to change between different board themes (dark mode, very important)
 - [ ] redraft UI and color scheme (remove "select" text)
 - [ ] fix all the CSS to be dynamic and flexible
 - [ ] add modal explaining control and choices (could be a sort of key)
 - [ ] write readme
+- [ ] comment code (lmao no thanks)
 - [ ] make video demo and other documentation for project submission
 - [ ] fix styling of run and reset buttons
   
