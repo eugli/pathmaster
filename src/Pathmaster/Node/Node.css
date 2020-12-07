@@ -1,6 +1,6 @@
 .node {
-  width: 1em;
-  height: 1em;
+  width: 0.7em;
+  height: 0.7em;
   outline: 0px solid #bdbdbd;
   display: inline-block;
   box-shadow: 0 1px 0 #bdbdbd inset, 1px 0 0 rgb(189, 189, 189) inset,
