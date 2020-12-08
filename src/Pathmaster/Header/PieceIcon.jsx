@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
-import king from "../pieces/king.png";
-import queen from "../pieces/queen.png";
-import bishop from "../pieces/bishop.png";
-import rook from "../pieces/rook.png";
-import knight from "../pieces/knight.png";
-import pawn from "../pieces/pawn.png";
+import king from "../Pieces/king.png";
+import queen from "../Pieces/queen.png";
+import bishop from "../Pieces/bishop.png";
+import rook from "../Pieces/rook.png";
+import knight from "../Pieces/knight.png";
+import pawn from "../Pieces/pawn.png";
 
 export default class PieceIcon extends Component {
   constructor(props) {
