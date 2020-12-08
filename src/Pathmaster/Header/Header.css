@@ -108,7 +108,7 @@
   background-color: rgb(245, 195, 66) !important;
 }
 
-.easter {
+.easter_hide {
   visibility: hidden;
 }
 
@@ -117,6 +117,7 @@
   align-items: center;
   height: 30px;
   flex-shrink: 0;
+  padding-left: 15px;
 }
 
 .piece_select span {
