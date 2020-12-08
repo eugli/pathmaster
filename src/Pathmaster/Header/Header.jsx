@@ -26,7 +26,7 @@ export default class Header extends Component {
       <div className="header_container">
         <div className="header" onClick={() => this.props.handleMouseUp()}>
           <div className="top_header">
-            <div className="logo_holder">
+            <div className="logo_holder header_item">
               <div>
                 <li onClick={() => this.props.setPieceType("Pawn")}>
                   <img
@@ -40,13 +40,27 @@ export default class Header extends Component {
                 PATH<span>MASTER</span>
               </h1>
             </div>
-            <div className="top_button">
-              <Button onClick={() => this.props.visualize()}>Run</Button>
+            <div className="top_button header_item">
+              <Button
+                style={{
+                  backgroundColor: '#f9d67766',
+                  border: 0,
+                  borderRadius: 3,
+                  boxShadow: '0 3px 5px 2px #0000001a'
+                }}
+                onClick={() => this.props.visualize()}>Run</Button>
             </div>
-            <div className="top_button">
-              <Button onClick={() => this.props.resetBoard()}>Reset</Button>
+            <div className="top_button header_item">
+              <Button
+                style={{
+                  backgroundColor: '#f9d67766',
+                  border: 0,
+                  borderRadius: 3,
+                  boxShadow: '0 3px 5px 2px #0000001a'
+                }}
+                onClick={() => this.props.resetBoard()}>Reset</Button>
             </div>
-            <ul className="navigation">
+            <ul className="navigation header_item">
               <a
                 href="https://github.com/eugli/Pathmaster"
                 target="_blank"
@@ -64,7 +78,7 @@ export default class Header extends Component {
             </ul>
           </div>
           <div className="bottom_header">
-            <ul className="piece_select">
+            <div className="piece_select">
               <h1>Select a Piece:</h1>
               <span>
                 {icons.map((piece) => {
@@ -78,7 +92,7 @@ export default class Header extends Component {
                   );
                 })}
               </span>
-            </ul>
+            </div>
             <div className="algo_select">
               <h1>Select Algorithm:</h1>
               <div className="selectdiv">

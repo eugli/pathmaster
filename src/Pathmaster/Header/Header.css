@@ -21,7 +21,9 @@
 .top_header {
   height: 3.5em;
   width: 100%;
-  display: table;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   background-color: rgb(245, 195, 66);
 }
@@ -29,50 +31,59 @@
 .bottom_header {
   height: 4em;
   width: 100%;
-  display: table;
-  background-color: rgb(249, 215, 120);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9d677;
   border-bottom: 2px solid black;
   position: relative;
-  z-index: 5;
+  z-index: 100;
 }
 
 .logo_holder {
   width: 250px;
   height: 100%;
-  display: table;
-  float: left;
-  padding-left: 40px;
+  padding-left: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo_holder h1 {
+  display: flex;
   height: 100%;
-  display: table-cell;
-  vertical-align: middle;
   font-size: 2em;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
+  padding-top: 15px
 }
 
 .logo_holder h1 span {
   font-weight: 700;
+  justify-content: center;
 }
 
 .logo_holder img {
-  display: table-cell;
-  vertical-align: middle;
   padding-top: 0.5em;
   padding-left: 1em;
 }
 
 .top_button {
-  display: table-cell;
-  vertical-align: middle;
   width: 50%;
-  margin-right: 5vw;
+}
+
+.header_item {
+  display: flex;
+  justify-content: center;
+}
+
+.header_item {
+  display: flex;
+  justify-content: center;
 }
 
 .navigation {
-  float: right;
+  flex-grow: 1;
   height: 100%;
   padding-right: 20px;
 }
@@ -102,16 +113,14 @@
 }
 
 .piece_select {
-  float: left;
-  display: table;
-  height: 100%;
-  padding-left: 7em;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  flex-shrink: 0;
 }
 
 .piece_select span {
-  display: table-cell;
-  vertical-align: middle;
+  display: table
 }
 
 .piece_select button {
@@ -127,26 +136,23 @@
 }
 
 .piece_select h1 {
-  display: table-cell;
-  vertical-align: middle;
-  padding-right: 0.5em;
   font-size: 21px;
   font-weight: 300;
+  padding-right: 20px;
   font-family: "Fira Sans Extra Condensed", sans-serif;
 }
 
 .algo_select {
+  display: flex;
+  align-items: center;
   width: 400px;
-  height: 100%;
-  display: table;
-  float: right;
-  padding-right: 7em;
+  height: 30px;
+  flex-shrink: 0
 }
 
 .algo_select h1 {
-  display: table-cell;
-  vertical-align: middle;
   font-size: 21px;
+  padding-right: 20px;
   font-weight: 300;
   font-family: "Fira Sans Extra Condensed", sans-serif;
 }
