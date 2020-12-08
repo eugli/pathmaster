@@ -142,7 +142,7 @@ export function getNeighbors(node, grid, pieceType) {
   }
 
   if (pieceType === "Pawn") {
-    for (let i = r - 1; i >= 0; i--) {
+    for (let i = r - 2; i >= 0; i--) {
       if (grid[i][c].isWall) break;
       neighbors.push(grid[i][c]);
     }
