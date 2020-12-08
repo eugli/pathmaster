@@ -1,5 +1,5 @@
 # Pathmaster
-[Pathmaster](pathmaster.tech) is a web app that explores pathfinding visualization using chess pieces.
+[Pathmaster](https://pathmaster.tech/) is a web app that explores pathfinding visualization using chess pieces.
 
 This project was built for COP3530: Data Structures and Algorithms at the University of Florida.
 
