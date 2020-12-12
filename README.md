@@ -34,4 +34,8 @@ This project was built for COP3530: Data Structures and Algorithms at the Univer
 - [ ] comment code (lmao no thanks)
 - [x] make video demo and other documentation for project submission
 - [x] fix styling of run and reset buttons
-  
+- [ ] make header and footer much smaller
+- [ ] option to speed up animation
+- [ ] keyboard shortcuts (r for run? c for reset / clear?)
+- [ ] reorder pieces to be in chess piece value
+- [ ] hover over piece to see how it moves modal
