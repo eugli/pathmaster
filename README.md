@@ -38,4 +38,4 @@ This project was built for COP3530: Data Structures and Algorithms at the Univer
 - [ ] option to speed up animation
 - [ ] keyboard shortcuts (r for run? c for reset / clear?)
 - [ ] reorder pieces to be in chess piece value
-- [ ] hover over piece to see how it moves modal
+- [ ] hover over piece to see how it moves modal 
