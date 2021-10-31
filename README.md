@@ -3,6 +3,8 @@
 
 This project was built for COP3530: Data Structures and Algorithms at the University of Florida. (We got 1st place 😃.)
 
+Will work on it when I get the chance.
+
 ## Todo
 - [x] fix button animation
 - [x] fix reset button
