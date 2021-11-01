@@ -39,4 +39,4 @@ This project was built for COP3530: Data Structures and Algorithms at the Univer
 - [ ] keyboard shortcuts (r for run? c for reset / clear?)
 - [ ] reorder pieces to be in chess piece value
 - [ ] hover over piece to see how it moves modal 
-- [ ] experiment with Bellman Ford algorithm and see how that looks visualized. 
+- [ ] experiment with Bellman Ford algorithm
