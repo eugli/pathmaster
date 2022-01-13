@@ -8,10 +8,10 @@
 import { PriorityQueue } from "./priorityqueue.js";
 import { getNeighbors, dist } from "./getneighbors.js";
 
-//following pseudocode from https://en.wikipedia.org/wiki/A*_search_algorithm
-//heuristic is distance to target node
-//isWeighted is a boolean, if true it will perform a weighted A* search
-//if false, it will perform an unweighted A* search
+// following pseudocode from https://en.wikipedia.org/wiki/A*_search_algorithm
+// heuristic is distance to target node
+// isWeighted is a boolean, if true it will perform a weighted A* search
+// if false, it will perform an unweighted A* search
 export function astar(grid, start, end, pieceType, isWeighted) {
   let visitedNodes = [];
   let cmp = (a, b) => a.distance + a.heuristic < b.distance + b.heuristic;

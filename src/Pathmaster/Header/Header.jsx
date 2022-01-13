@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Logo from "../../Assets/pathmaster.png"
+import GitHub from "../../Assets/github.png"
 import PieceIcon from "./PieceIcon";
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
@@ -30,7 +32,7 @@ export default class Header extends Component {
               <div>
                 <li onClick={() => this.props.setPieceType("Pawn")}>
                   <img
-                    src="https://www.flaticon.com/svg/static/icons/svg/107/107613.svg"
+                    src={Logo}
                     width="35"
                     alt="🥚"
                   ></img>
@@ -68,7 +70,7 @@ export default class Header extends Component {
               >
                 <li>
                   <img
-                    src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg"
+                    src={GitHub}
                     width="40"
                     height="40"
                     alt="GitHub"
