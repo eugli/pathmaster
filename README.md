@@ -31,7 +31,7 @@ This project was built for **COP3530: Data Structures and Algorithms** at the Un
 - [ ] fix all the CSS to be dynamic and flexible
 - [ ] add modal explaining control and choices (could be a sort of key)
 - [ ] write readme
-- [ ] comment code (lmao no thanks)
+- [ ] comment code
 - [x] make video demo and other documentation for project submission
 - [x] fix styling of run and reset buttons
 - [ ] make header and footer much smaller
