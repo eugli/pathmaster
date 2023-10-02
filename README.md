@@ -1,7 +1,45 @@
-# Pathmaster
-[Pathmaster](https://pathmaster.rocks/) is a web app that explores pathfinding visualization using chess pieces. Basically, it's pathfinding for grandmasters.
+# 🛤️ Pathmaster
+[Pathmaster](https://pathmaster.rocks/)  is an innovative web app designed to visualize pathfinding concepts through chess pieces, aiming to make learning and understanding pathfinding fun and interactive. Developed as a part of COP3530: Data Structures and Algorithms at the University of Florida, Pathmaster won 1st place. 🏆
 
-This project was built for **COP3530: Data Structures and Algorithms** at the University of Florida. (We got 1st place 😃)
+## 🌟 Introduction
+Pathmaster utilizes React to create a rich, user-friendly experience, helping users delve deep into the world of pathfinding, bridging the gap between theory and practice. It presents a unique approach to understanding complex algorithms, by leveraging the familiarity and structural intricacies of chess.
+
+## 🚀 Getting Started
+To set up Pathmaster locally, follow these steps:
+1. Clone the repository: `git clone <https://github.com/eugli/Pathmaster.git>`
+2. Navigate to the project directory: `cd Pathmaster`
+3. Install dependencies: `npm install` 
+4. Run the development server: `npm run start` 
+5. Open your browser and go to `http://localhost:3000` to access the application.
+
+### Prerequisites
+- Ensure that Node.js is installed. If not, download it from [Node.js](https://nodejs.org/).
+- Any additional setups or installations required should be listed here.
+
+## 💻 Usage
+Pathmaster offers various functionalities and settings:
+- **1**: Navigate to 'http://localhost:3000'.
+- **2**: Select a chess piece you would like to visualize.
+- **3**: Select an algorithm you would like to visualize.
+- **4**: Draw obstacles by holding down the left-click button on a mouse or holding down on the trackpad.
+- **5**: Click run to simulate the algorithm.
+- **6**: Click reset if you would like to try out other algorithms or chess pieces.
+
+## 🤝 Contribution Guidelines
+We welcome contributions! To contribute:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b <branch-name>`.
+3. Make your changes and commit them: `git commit -m '<commit-message>'`
+4. Push the branch: `git push origin <branch-name>`
+5. Create a pull request.
+
+Please adhere to this project’s coding conventions and standards. For major changes, open an issue first to discuss what you would like to change.
+
+## 📜 License
+Pathmaster is licensed under MIT. For more information, please refer to the [LICENSE](<https://github.com/zhengiy/Pathmaster/blob/main/LICENSE>) file.
+
+
+
 
 ## Todo
 - [x] fix button animation
